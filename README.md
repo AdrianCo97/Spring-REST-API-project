@@ -1,4 +1,4 @@
-# Spring-REST-API-projekt
+# Spring-REST-API-project
 
 ## About the project
 This project is used for the purpose of showcasing but also practicing on my Spring Boot skills.
