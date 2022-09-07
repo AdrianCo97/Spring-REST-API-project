@@ -1,28 +1,26 @@
 package com.example.Spring.REST.API.projekt.user;
 
 
-import com.sun.istack.NotNull;
-
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.UUID;
 
-@Entity
 @Table(name="users")
+@Entity
 public class User {
 
     @Id
-    @
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(nullable = false)
     private String firstname;
 
-    @Column(nullable = false)
     private String lastname;
 
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
     private String email;
 
     private LocalDate createdAtDate;
