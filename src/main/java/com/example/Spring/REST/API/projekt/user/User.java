@@ -1,5 +1,6 @@
 package com.example.Spring.REST.API.projekt.user;
 
+
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -12,18 +13,18 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotNull
+    @Column(nullable = false)
     private String firstname;
 
-    @NotNull
+    @Column(nullable = false)
     private String lastname;
 
-    @NotNull
+    @Column(nullable = false)
     private String email;
 
-    public User(String firstName, String lastName, String email) {
-        this.firstname = firstName;
-        this.lastname = lastName;
+    public User(String firstname, String lastname, String email) {
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.email = email;
     }
 
@@ -36,19 +37,19 @@ public class User {
     }
 
     public String getFirstName() {
-        return firstName;
+        return firstname;
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.firstname = firstName;
     }
 
     public String getLastName() {
-        return lastName;
+        return lastname;
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        this.lastname = lastName;
     }
 
     public String getEmail() {
