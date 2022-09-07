@@ -4,13 +4,16 @@ package com.example.Spring.REST.API.projekt.user;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.UUID;
 
 @Entity
 @Table(name="users")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @
     private Long id;
 
     @Column(nullable = false)
@@ -19,13 +22,19 @@ public class User {
     @Column(nullable = false)
     private String lastname;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
+
+    private LocalDate createdAtDate;
+
+    private LocalTime createdAtTime;
 
     public User(String firstname, String lastname, String email) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
+        this.createdAtDate = LocalDate.now();
+        this.createdAtTime = LocalTime.now();
     }
 
     public Long getId() {
