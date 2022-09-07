@@ -13,17 +13,17 @@ public class User {
     private Long id;
 
     @NotNull
-    private String firstName;
+    private String firstname;
 
     @NotNull
-    private String lastName;
+    private String lastname;
 
     @NotNull
     private String email;
 
     public User(String firstName, String lastName, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.firstname = firstName;
+        this.lastname = lastName;
         this.email = email;
     }
 
