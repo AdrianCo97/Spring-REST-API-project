@@ -1,6 +1,7 @@
 package com.example.Spring.REST.API.projekt.user.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -13,16 +14,16 @@ public class UserModel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotNull
+    @NotBlank(message = "firstname can't be empty")
     private String firstname;
 
-    @NotNull
+    @NotBlank(message = "lastname can't be empty")
     private String lastname;
 
-    @NotNull
+    @NotBlank(message = "email can't be empty")
     private String email;
 
-    @NotNull
+    @NotBlank(message = "password can't be empty")
     private String password;
 
     private LocalDate createdAtDate = LocalDate.now();
