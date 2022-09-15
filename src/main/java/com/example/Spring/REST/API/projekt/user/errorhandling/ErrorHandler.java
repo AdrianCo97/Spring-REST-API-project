@@ -1,13 +1,15 @@
 package com.example.Spring.REST.API.projekt.user.errorhandling;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Repository;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,4 +32,9 @@ public class ErrorHandler {
         return errors;
     }
 
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(EntityNotFoundException.class)
+    public ResponseEntity entityNotFound(EntityNotFoundException exception){
+        return new ResponseEntity<>("Entity was not found", HttpStatus.NOT_FOUND);
+    }
 }
