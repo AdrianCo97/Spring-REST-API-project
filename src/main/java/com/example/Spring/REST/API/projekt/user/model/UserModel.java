@@ -1,6 +1,7 @@
 package com.example.Spring.REST.API.projekt.user.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
@@ -21,6 +22,7 @@ public class UserModel {
     private String lastname;
 
     @NotBlank(message = "email can't be empty")
+    @Email(message = "The email must be in a valid format")
     private String email;
 
     @NotBlank(message = "password can't be empty")
